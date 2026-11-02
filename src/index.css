@@ -1,163 +1,173 @@
-:root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
-
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
-
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
-
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
-}
-
-body {
+* {
   margin: 0;
-}
-
-#root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
+  padding: 0;
   box-sizing: border-box;
 }
 
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f5f7;
+  color: #263445;
 }
 
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
+#root {
+  width: 100%;
+  min-height: 100vh;
 }
 
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
 
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
+.header {
+  background: white;
+  border-top: 6px solid #7044a1;
+  padding: 20px 35px;
 }
 
-p {
-  margin: 0;
+.header h1 {
+  font-size: 32px;
+  color: #304b68;
+  margin-bottom: 6px;
 }
 
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
+.header p {
+  color: #64748b;
 }
 
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
+/* Navbar */
+.navbar {
+  display: flex;
+  gap: 30px;
+  padding: 15px 35px;
+  background: #7044a1;
 }
 
-img {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-h1 {
-  color: #aa3bff;
-
-}
-
-button {
-  background-color: blue;
+.navbar a {
   color: white;
-  padding: 10px 25px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.navbar a:hover {
+  color: #e9d5ff;
+}
+
+/* Contenu */
+.main-content {
+  max-width: 1200px;
+  margin: auto;
+  padding: 35px 20px;
+}
+
+.main-content>h2 {
+  text-align: center;
+  color: #304b68;
+  font-size: 32px;
+  margin-bottom: 25px;
+}
+
+/* Compteur et boutons */
+button {
+  background: #58a9e0;
+  color: white;
   border: none;
   border-radius: 8px;
-  cursor: pointer;
+  padding: 12px 22px;
   font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 5px;
 }
 
-div {
-  width: 400px;
-  margin: 50px auto;
-  padding: 25px;
-  background-color: #f5f5f5;
-  border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+button:hover {
+  background: #347fb4;
+}
+
+/* Grille des étudiants */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,
+      minmax(260px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+/* Carte étudiant */
+.container,
+.student-card {
+  background: white;
+  border-radius: 12px;
+  padding: 25px 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   text-align: center;
+  animation: cardEnter 0.6s ease both;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-p {
-  color: black;
-  font-size: 18px;
-  font-family: Arial, sans-serif;
+.container img,
+.student-card img {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto 20px;
+}
+
+.container p,
+.student-card p {
   margin: 10px 0;
+  overflow-wrap: anywhere;
 }
 
-body {
-  margin: 0;
-  min-height: 100vh;
+.container:hover,
+.student-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(93, 173, 226, 0.25);
+}
 
-  background: linear-gradient(135deg, #667eea, #764ba2);
+/* Footer */
+.footer,
+.site-footer,
+footer {
+  background: #304b68;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+}
 
-  font-family: Arial, sans-serif;
+@keyframes cardEnter {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Téléphone */
+@media (max-width: 600px) {
+  .header {
+    padding: 20px;
+  }
+
+  .header h1 {
+    font-size: 25px;
+  }
+
+  .navbar {
+    gap: 15px;
+    padding: 15px 20px;
+    flex-wrap: wrap;
+  }
+
+  .main-content>h2 {
+    font-size: 25px;
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
 }

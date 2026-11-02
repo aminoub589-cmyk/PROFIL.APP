@@ -1,39 +1,36 @@
+import { useState } from "react";
+
 function StudentCard(props) {
+  const [coordonneesVisibles, setCoordonneesVisibles] = useState(false);
+
   return (
-    <div className="container">
-      <img src={props.image} alt="Profil étudiant" />
+    <div className="student-card">
+      <img src={props.image} alt={`${props.prenom} ${props.nom}`} />
 
-      <h2>Fiche étudiant</h2>
+      <h2>
+        {props.prenom} {props.nom}
+      </h2>
 
-      <p>
-        <strong>Nom & Prénom :</strong> {props.Prenom} {props.nom}
-      </p>
+      <p>Filière : {props.filiere}</p>
+      <p>Année : {props.anneeEtude}</p>
+      <p>Groupe : {props.groupe}</p>
+      <p>Ville : {props.ville}</p>
 
-      <p>
-        <strong>Email :</strong> {props.Email}
-      </p>
+      <button onClick={() => setCoordonneesVisibles(!coordonneesVisibles)}>
+        {coordonneesVisibles ? "Masquer les coordonnées" : "Afficher les coordonnées"}
+      </button>
 
-      <p>
-        <strong>Téléphone :</strong> {props.Téléphone}
-      </p>
+      {coordonneesVisibles && (
+        <div className="coordonnees">
+          <p>Email : {props.email}</p>
+          <p>Téléphone : {props.telephone}</p>
+        </div>
+      )}
 
-      <p>
-        <strong>Filière :</strong> {props.Filière}
-      </p>
-
-      <p>
-        <strong>Année d'étude :</strong> {props.anneeEtude}
-      </p>
-
-      <p>
-        <strong>Groupe :</strong> {props.Groupe}
-      </p>
-
-      <p>
-        <strong>Ville :</strong> {props.Ville}
-      </p>
-
-
+      <div className="actions">
+        <button className="btn-secondaire" onClick={props.onEdit}>Modifier</button>
+        <button className="btn-danger" onClick={props.onDelete}>Supprimer</button>
+      </div>
     </div>
   );
 }

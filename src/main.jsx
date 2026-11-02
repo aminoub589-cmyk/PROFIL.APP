@@ -1,10 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
+import { Counter } from "./components/counter.jsx";
+import './App.css'
 import './index.css' // ou App.css
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <App />
+
   </React.StrictMode>,
 )
